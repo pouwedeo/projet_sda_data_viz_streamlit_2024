@@ -20,7 +20,6 @@ result = authenticator.login(location="main", key="Login")
 
 if st.session_state["authentication_status"]:
     authenticator.logout('Logout', 'sidebar')
-    st.sidebar.write(f'Bienvenue *{st.session_state["name"]}*')
     st.sidebar.divider()
     menu()
     footer()

@@ -19,6 +19,7 @@ st.sidebar.divider()
 # Data initialisation
 data = filtre_data()
 
+
 #KPI metrics
 col1, col2, col3, col4 = st.columns(4)
 

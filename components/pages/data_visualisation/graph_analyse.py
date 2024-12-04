@@ -101,8 +101,7 @@ def year_stat_project(data):
         campaigns_by_year["successful_count"] = campaigns_by_year["state"].apply(lambda x: x.get("successful", 0))
         campaigns_by_year["failed_count"] = campaigns_by_year["state"].apply(lambda x: x.get("failed", 0))
         campaigns_by_year = campaigns_by_year.reset_index()
-        fig_year = px.line(campaigns_by_year, x='year', y=['name', 'successful_count', 'failed_count'],
-                           labels={'year': 'Années', 'successful_count': 'Succès', 'failed_count': 'Echec'})
+        fig_year = px.line(campaigns_by_year, x='year', y=['name', 'successful_count', 'failed_count'])
         fig_year.update_layout(title="Evolution du nombre de projets, du succès et l'echec des projets par année",
                           xaxis_title='Années', yaxis_title='Nombre')
         st.plotly_chart(fig_year)
