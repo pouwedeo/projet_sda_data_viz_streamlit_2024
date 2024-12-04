@@ -26,7 +26,7 @@
 ## Running the Application
 To start the Streamlit application, run the following command from the root directory of the project:
  
-    cd app 
+    
     streamlit run app.py
 ## Authentifation 
    UserName: user1
