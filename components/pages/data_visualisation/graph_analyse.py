@@ -4,13 +4,25 @@ import  pandas as pd
 
 # State graphe
 def stat_graph(data_graph):
-
+    st.markdown("""
+              <style>
+                  .streamlit-expanderHeader {
+                      font-size: 20px;
+                      font-weight: bold;
+                  }
+                  .user-select-none svg-container {
+                      border-radius: 15px;
+                      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+                  }
+              </style>
+          """, unsafe_allow_html=True)
     try:
         # State count
         stat_count = data_graph["state"].value_counts().reset_index()
         stat_count.columns = ["State", "Count"]
         stat = px.pie(stat_count,names="State", values="Count", title="Répartition des campagnes par statut", color_discrete_sequence=px.colors.qualitative.Set3)
-        stat.update_layout(width = 700, height= 700)
+        stat.update_layout(width = 700, height= 700,paper_bgcolor="white",font=dict(family="Arial", size=14, color="black"))
+
         st.plotly_chart(stat)
     except Exception as e:
         st.error(f"State graphe error: {e}")
@@ -65,7 +77,7 @@ def categorie_rep(data):
         category_counts.columns = ["category", "Count"]      # Affiche uniquement les 30 catégories principales
         fig_cat = px.bar(category_counts, y='Count', x='category', text='Count', color='category',
                          title="Répartition des campagnes par catégorie",
-                         labels={'Count':'Nombre', 'category':'Categories'})
+                         labels={'Count':'Nombre de projets', 'category':'Categories'})
         fig_cat.update_layout(width=1000, height=500, xaxis_tickangle=-45, uniformtext_minsize=7)
 
         st.plotly_chart(fig_cat)
@@ -102,7 +114,7 @@ def year_stat_project(data):
         campaigns_by_year["failed_count"] = campaigns_by_year["state"].apply(lambda x: x.get("failed", 0))
         campaigns_by_year = campaigns_by_year.reset_index()
         fig_year = px.line(campaigns_by_year, x='year', y=['name', 'successful_count', 'failed_count'])
-        fig_year.update_layout(title="Evolution du nombre de projets, du succès et l'echec des projets par année",
+        fig_year.update_layout(title="Évolution du nombre de projets, ainsi que des taux de succès et d'échec, par année",
                           xaxis_title='Années', yaxis_title='Nombre')
         st.plotly_chart(fig_year)
     except Exception as e:

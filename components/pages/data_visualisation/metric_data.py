@@ -13,7 +13,7 @@ def count_data(data):
 def sum_goal(data):
     try:
         sum_data = data.sum()
-        formatted_sum = f"{sum_data / 1000000:,.2f}M"
+        formatted_sum = f"${sum_data / 1000000:,.2f}M"
         return formatted_sum
     except Exception as e:
         st.error(f"Error in sumGoal: {e}")
@@ -23,7 +23,7 @@ def sum_pledged(data):
     try:
 
         sum_data = data.sum()
-        formatted_sum = f"{sum_data / 1000000:,.2f}M"
+        formatted_sum = f"${sum_data / 1000000:,.2f}M"
         return formatted_sum
     except Exception as e:
         st.error(f"Error in sumPledged: {e}")

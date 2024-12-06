@@ -68,6 +68,7 @@ with col4:
     )
 
 
+
 # Analyse des graphes
 if view_choice == "Distribution":
 
@@ -80,7 +81,7 @@ if view_choice == "Distribution":
              color: gray;
            }
          </style>
-         <h5 class="graphTitle">Analyser de la distribution et les tendances des campagnes </h5>
+         <h5 class="graphTitle">Analyse de la distribution ainsi que les tendances des campagnes </h5>
        
     """, unsafe_allow_html=True)
 

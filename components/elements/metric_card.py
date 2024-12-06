@@ -20,6 +20,7 @@ def custom_metric(
                  padding: 15px; 
                  text-align: center; 
                  margin-bottom: 10px;
+                 box-shadow: 5px 5px 5px 5px rgb(68 63 63 / 17%);
              ">
             <div style="color: {text_color}; font-size: 16px; font-weight: bold;">{label}</div>
             <div style="color: {text_color}; font-size: 24px; font-weight: bold;">{value}</div>

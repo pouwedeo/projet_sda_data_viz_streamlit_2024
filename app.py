@@ -8,7 +8,6 @@ from  components.elements.auth_form import AuthForm
 st.set_page_config(
     page_title="Dashboard Kickstarter_2020",
     page_icon="assets/logo.png",
-    layout="wide",
 )
 
 #Auth class
