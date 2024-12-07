@@ -11,11 +11,7 @@ def scrape_kickstarter(url):
         options = Options()
         options.headless = True  # Ne pas afficher la fenêtre du navigateur
         driver = webdriver.Chrome(options=options)
-
-        # Ouvrir la page
         driver.get(url)
-
-        # Attendre que la page se charge (ajustez le temps si nécessaire)
         sleep(3)
 
         # Récupérer le titre de la page

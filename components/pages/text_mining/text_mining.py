@@ -1,19 +1,35 @@
 import  streamlit as st
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-from PIL import Image
-import  numpy as np
-from  components.pages.text_mining.pre_procesing import corpus_stemmatisation
+from  components.pages.text_mining.pre_procesing import PreProcessingClass
+from  components.pages.text_mining.word_cloud import word_cloud_create
+from  components.pages.text_mining.text_analyse_sentiment import  sentiment_result
 
-#Pre_processing
+#Pre_processing initialisation
+url = "https://www.kickstarter.com/articles/pbc2020?lang=fr" #article url
+path = "data/kickstarter.csv"  #path to store the article content
+
+#Pe_processing class
+pre_processing = PreProcessingClass(url, path)
+
+#WordCloud text generation
+corpus_text = " ".join(pre_processing.corpus_stemmatisation())
+
+#Article content initialisation
+df = pre_processing.corpus_create()
 
 
-#wordCloud
-corpus_text = " ".join(corpus_stemmatisation())
-mask = np.array(Image.open("assets/istockphoto-2166588847-1024x1024.jpg"))
-wordCloud = WordCloud(width=800, height=800, mask=mask, background_color='white', contour_color= 'black', contour_width=5).generate(corpus_text)
-fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(wordCloud, interpolation='antialiased')
-ax.axis('off')
 
-st.pyplot(fig)
+#Menu observation
+st.session_state.horizontal = True
+st.sidebar.subheader("Type de traitement")
+text_mining_choice = st.sidebar.radio(
+    "",
+    ["WordCloud", "Sentiment"],
+    horizontal=st.session_state.horizontal,
+)
+
+#Pages observation
+if text_mining_choice == "WordCloud":
+    #wordCloud initialisation
+    word_cloud_create(corpus_text, url)
+elif text_mining_choice == "Sentiment":
+    sentiment_result(df)
