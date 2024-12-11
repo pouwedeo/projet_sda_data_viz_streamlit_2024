@@ -19,6 +19,7 @@ def extract_relations(text):
 
     return G
 
+
 #Implementation des relations
 def text_analyse(df):
     #DataFrame extraction

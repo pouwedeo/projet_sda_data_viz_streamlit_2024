@@ -19,6 +19,7 @@ def analyze_sentiment_with_transformers(text):
     result = sentiment_analyzer(text[:512])  # Analyse des 512 premiers caractères (limite du modèle)
     return result
 
+
 def sentiment_result(df):
     text = " ".join(row[1] for row in df)
     with st.spinner("Analyse des sentiments..."):

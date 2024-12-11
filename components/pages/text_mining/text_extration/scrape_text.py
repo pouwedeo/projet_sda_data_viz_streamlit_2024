@@ -28,7 +28,7 @@ def scrape_kickstarter(url):
     except Exception as e:
         return f"Erreur lors du scraping : {e}"
 
-def save_to_csv(data, filename="data/kickstarter.csv"):
+def save_to_csv(data, filename):
     # Enregistrer le contenu dans un fichier CSV
     with open(filename, mode="w", newline='', encoding='utf-8') as file:
         writer = csv.writer(file)

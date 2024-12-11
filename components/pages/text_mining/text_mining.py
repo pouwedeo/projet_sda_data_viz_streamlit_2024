@@ -1,7 +1,7 @@
 import  streamlit as st
-from  components.pages.text_mining.pre_procesing import PreProcessingClass
-from  components.pages.text_mining.word_cloud import word_cloud_create
-from  components.pages.text_mining.text_analyse_sentiment import  sentiment_result
+from components.pages.text_mining.text_extration.pre_procesing import PreProcessingClass
+from components.pages.text_mining.text_analyse.word_cloud import word_cloud_create
+from components.pages.text_mining.text_analyse.text_analyse_sentiment import  sentiment_result
 
 #Pre_processing initialisation
 url = "https://www.kickstarter.com/articles/pbc2020?lang=fr" #article url

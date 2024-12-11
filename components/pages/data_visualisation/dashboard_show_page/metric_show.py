@@ -1,15 +1,19 @@
 import streamlit as st
-from  components.pages.data_visualisation.metric_data import count_data, sum_goal, sum_pledged, sum_success
-from components.elements.metric_card import custom_metric
+from  components.elements.metric_card import custom_metric
+from  components.pages.data_visualisation.dashboard_class.MetricClass import  MetricClass
 
 
 def metric_show(data):
+
+    #Initialisation metrics class
+    metric_class = MetricClass(data)
+
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         custom_metric(
             label="Éléments",
-            value=count_data(data),
+            value=metric_class.count_data(),
             delta="",
             data_testid="metric-nombre",
             background_color="#ede7f6 ",
@@ -20,7 +24,7 @@ def metric_show(data):
     with col2:
         custom_metric(
             label="Objectifs",
-            value=sum_goal(data["goal"]),
+            value=metric_class.sum_goal(),
             data_testid="metric-goal",
             background_color="#fff3e0",
             text_color="#ef6c00",
@@ -30,7 +34,7 @@ def metric_show(data):
     with col3:
         custom_metric(
             label="Objectifs Atteints",
-            value=sum_pledged(data["pledged"]),
+            value=metric_class.sum_pledged(),
             data_testid="metric-goal",
             background_color="#fff3e0",
             text_color="#ef6c00",
@@ -38,10 +42,9 @@ def metric_show(data):
         )
 
     with col4:
-        total = data[data['state'] == "successful"]
         custom_metric(
             label="Projets Réussis",
-            value=sum_success(total),
+            value=metric_class.sum_success(),
             delta="",
             data_testid="metric-success",
             background_color="#e8f5e9",

@@ -1,12 +1,13 @@
 import streamlit as st
 import pandas as pd
 import re
+import os
 from unidecode import unidecode
 from nltk.stem import SnowballStemmer
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
-from  components.pages.text_mining.scrape_text import scrape_kickstarter, save_to_csv
+from components.pages.text_mining.text_extration.scrape_text import scrape_kickstarter, save_to_csv
 
 
 #Pre_processing class
@@ -23,13 +24,22 @@ class PreProcessingClass:
     def text_read(self):
         text_read = self.scraping_url()
         if text_read:
-          return  save_to_csv(text_read)
+          return  save_to_csv(text_read, self.path)
 
     #Définition du corpus
     def corpus_create(self):
-        df = pd.read_csv(self.path)
-        return df[['Title', 'Content']].to_records(index=False).tolist()
+        if not os.path.exists(self.path):
+            self.text_read()
+        try:
+            df = pd.read_csv(self.path)
+            if df.empty:
+                self.text_read()
+                df = pd.read_csv(self.path)
 
+            return df[['Title', 'Content']].to_records(index=False).tolist()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return []
     #Analyse du corpus
 
     def corpus_analyse(self):
