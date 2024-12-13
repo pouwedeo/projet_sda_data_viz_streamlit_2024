@@ -78,7 +78,7 @@ class GraphAnalyseClass(Dashboard):
         try:
             self.data["year"] = self.data["launched_at"].dt.year
             fig_correl = px.scatter(self.data, y="usd_pledged", x="backers_count",log_x=True,
-                                    range_y=[0, 90000], hover_name="country", size="goal",
+                                    range_y=[0, 90000], hover_name="country",
             size_max=55, animation_frame="year", animation_group="country", color="state",
             labels={'usd_pledged': 'Montant collecté (USD)', 'backers_count': 'Nombre de contributeurs',
                    'country': 'Pays', 'year': 'Années', 'state':'Etat du projet','goal': 'Montant demandé'},

@@ -1,4 +1,22 @@
-### Read me projet sda data viz streamit 2024
+## Read me project sda data viz streamlit 2024
+## Predicting the Success of Kickstarter Projects
+   An interactive application that estimates the probability of success of a Kickstarter project based on various factors.
+### Project Description
+   This project aims to predict the likelihood of success for a Kickstarter project using data such as:
+
+- The project's category.
+- The campaign duration.
+- The financial goal set.
+- The country where the project is launched.
+
+The application is built with Streamlit, providing an interactive and user-friendly experience.
+
+### Features
+- Input parameters for Kickstarter projects.
+- Real-time prediction of success probability.
+- Visualization of factors influencing success.
+- Project distribution 
+- Text Mining
 
 ## Installation
 
@@ -28,6 +46,7 @@ To start the Streamlit application, run the following command from the root dire
  
     
     streamlit run app.py
+
 ## Authentifation 
    UserName: user1
    password: password23
