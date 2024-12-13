@@ -18,10 +18,11 @@ authenticator = autForm.auth()
 result = authenticator.login(location="main", key="Login")
 
 if st.session_state["authentication_status"]:
-    authenticator.logout('Logout', 'sidebar')
-    st.sidebar.divider()
-    menu()
-    footer()
+
+        authenticator.logout('Logout', 'sidebar')
+        st.sidebar.divider()
+        menu()
+        footer()
 elif st.session_state["authentication_status"] is False:
     st.error("Nom d'utilisateur ou mot de passe incorrecte")
 elif st.session_state["authentication_status"] is None:

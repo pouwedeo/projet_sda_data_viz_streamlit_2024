@@ -50,3 +50,58 @@ To start the Streamlit application, run the following command from the root dire
 ## Authentifation 
    UserName: user1
    password: password23
+
+## Project Structure
+
+
+
+##### projet_sda_data_viz_streamlit_2024/
+
+      
+     
+      ├── .streamlit/                     #Configuration files for Streamlit.
+      ├── assets/                         #Contains static assets such as images, icons.
+      ├── components/
+      ├── element/
+      │    __init__.py
+      │   ├── auth_form.py                #Handles user authentication forms.
+      │   ├── footer.py                   #Defines the footer for the application.
+      │   ├── metric_card.py              #Component for displaying key metrics.
+      │   └── sidebar.py                  #Manages the sidebar layout and navigation.
+      ├── pages/                          #Streamlit pages for modularized views.
+      │   ├── data_visualisation/         #Contains classes and scripts for data visualization.
+      │   │   ├── dashboard_class/        
+      │   │   │   ├── DashboardClass.py   #Manages dashboard layout and data interactions.
+      │   │   │   ├── GraphAnalyseClass.py #andles analytical graph generation.
+      │   │   │   ├── GraphFactClass.py    #Generates factors graphs.
+      │   │   │   └── MetricClass.py       #Manages metric computations and displays.
+      │   │   ├── dashboard_show_page/
+      │   │   │   ├── dashboard_show.py    #Displays the main dashboard.
+      │   │   │   ├── metric_show.py       #Displays metric-related data
+      │   │   │   └── prediction_show.py   #Handles prediction-related displays.
+      │   │   ├── dashboard.py             #dashboard functionalities.
+      │   │   └── filtrage.py              #Implements data filtering logic.
+      ├── descriptions/
+      │   └── description.py               #Manages descriptive text and metadata.
+      ├── text_mining/
+      │   ├── text_analyse/
+      │   │   ├── word_cloud.py            #erforms sentiment analysis.
+      │   │   └── text_analyse_sentiment.py #Generates word clouds from text data.
+      │   │    
+      │   ├── text_extration/
+      │   │   ├── pre_procesing.py          #Prepares text for analysis.
+      │   │   └── scrape_text.py            # Extracts text from web or other sources.
+      │   └── text_mining.py
+      ├── data/                             # Dataset used
+      │   ├── .ipynb_checkpoints/
+      │   ├── kickstarter.csv                #Corpus
+      │   ├── Kickstarter_2020.csv           #DataFrame
+      │   └── users.db                       #Database for storing user information.
+      ├── lib/
+      ├── security/                          #Contains files and scripts for securing the application.
+      ├── app.py                             # Main Streamlit application file
+      ├── README.md            
+      └── requirements.txt                   # Project dependencies
+      
+
+
