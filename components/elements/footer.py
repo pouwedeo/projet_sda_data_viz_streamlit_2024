@@ -19,7 +19,7 @@ def footer():
         }
         </style>
         <div class="footer">
-            © 2024 ShowProject | Créé par Pouwédéo-Roméo-Fatoumata-Souleymane|Sorbonne Data Analytics
+            © 2024 ShowProject | Créé par Pouwédéo TCHAZINON|Sorbonne Data Analytics
         </div>
         """,
         unsafe_allow_html=True

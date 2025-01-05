@@ -15,13 +15,13 @@ def filtre_data():
     #Categories filtering
     selected_category = st.sidebar.multiselect(
         "Sélectionnez une ou plusieurs catégories",
-        options=data['category'],
+        options=data['category'].unique(),
         key="categories_key"
     )
     #Location filtering
     selected_location = st.sidebar.multiselect(
         "Sélectionnez une ou plusieurs localisation",
-        options=data['location'],
+        options=data['location'].unique(),
         key="location_key"
 
     )
@@ -29,7 +29,7 @@ def filtre_data():
    #State filtering
     selected_state = st.sidebar.multiselect(
         "Sélectionnez un ou plusieurs état",
-        options=data['state'],
+        options=data['state'].unique(),
         key="state"
     )
 
